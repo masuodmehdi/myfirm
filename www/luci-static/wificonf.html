@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<meta name="viewport" content="initial-scale=1.0">
+<link rel="stylesheet" href=/luci-static/"mac.css">
+<meta http-equiv="cache-control" content="no-cache" />
+<center>
+ <form method="post" action="/luci-static/wificonf.php"> 
+ <br><br>
+Wi-Fi Enable/Disable :<select name="wifil"><option value="enable" selected>Enable</option><option value="disable">Disable</option></select><br><br>
+WPS Enable/Disable :<select name="wps"><option value="1" selected>Enable</option><option value="0">Disable</option></select><br><br>
+ <br><br> Mode :<select name="modeo"><option value="bgn">b/g/n</option><option value="bg">b/g</option></select>
+Channel: <select id="channel"  name="channel"><option value="1">1 (2412 MHz)</option><option value="2">2 (2417 MHz)</option><option value="3">3 (2422 MHz)</option><option value="4">4 (2427 MHz)</option><option value="5">5 (2432 MHz)</option><option value="6">6 (2437 MHz)</option><option value="7">7 (2442 MHz)</option><option value="8">8 (2447 MHz)</option><option value="9">9 (2452 MHz)</option><option value="10">10 (2457 MHz)</option><option value="11" selected>11 (2462 MHz)</option></select>
+Width:<select name="width" id="width"><option value="20">20 MHz</option><option value="40">40 MHz</option></select>
+<br><br>
+Wi-Fi Mode :<select name="modew"><option value="ap">Access Point</option><option value="sta">Client</option></select>
+SSID :<input id="ssid" name="ssid" type="text" value=""  /> <input style="width:20px; height:20px" name="hooden" value="1" type="checkbox" value="hidden" >Hidden SSID<br><br>
+Encryption :<select name="encryption"><option value="psk">WPA-PSK</option><option value="psk2">WPA2-PSK</option><option value="psk-mixed">WPA-PSK/WPA2-PSK Mixed Mode</option></select>
+ Key: <input id="passwifi" name="passwifi" type="password" value=""    /> <input style="width:20px; height:20px" id="showpad" type="checkbox" onclick="showpass()">Show Password<br><br>
+<input type="submit" value="Save Settings">
+</form> 
+</center>
+  <script src="/luci-static/mac.js"></script>
+</body>
+</html>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/luci-static/signal.css">
+    <script src="/luci-static/jquery-3.2.1.min.js"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; 
+      margin-top: 30px;
+  /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column.kma {
+    margin-top: 150px;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+  body {
+    zoom : 85%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  body {
+    zoom : 75%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  body {
+    zoom : 65%;
+  }
+}
+@media only screen and (max-width: 340px) {
+ * {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+
+  width: 100%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ body {
+    zoom : 45%;
+  }
+}
+
+
+
+</style>
+</head>
+<body>
+
+
+
+<div class="row">
+  <div class="column" >
+     <table class="w3-table-all">
+    <thead>
+    <center>
+      <div class="w3-red">
+  <center><p>Modem & Sim Information</p></center>
+      </div>
+    </thead>
+    <tr>
+      <td>IMEI : </td>
+      <td id="imeiii" ></td>
+    </tr>
+    <tr>
+      <td>IMSI : </td>
+      <td id="imsiii" ></td>
+    </tr>
+    <tr>
+      <td>ICCID : </td>
+      <td id="iccidd" ></td>
+    </tr>
+        <tr>
+      <td>IPV4 : </td>
+      <td id="ipv44" ></td>
+    </tr>
+        <tr>
+      <td>IPV6 : </td>
+      <td id="ipv66" ></td>
+    </tr>
+	   <tr>
+      <td>TEMP : </td>
+      <td id="tempp" ></td>
+    </tr>
+	
+  </table>
+  </center>
+  </div>
+  
+  <div class="column" >
+  <table id="refreshh" class="w3-table-all">
+    <thead>
+    <center>
+      <div  class="w3-red">
+  <center><p>Network & Signal Information</p></center>
+      </div>
+    </thead>
+	  <tr>
+      <td>TYPE : </td>
+      <td id="shaba" ></td>
+    </tr>
+	  <tr>
+      <td>BAND : </td>
+      <td id="band" ></td>
+    </tr>
+      <tr id="channelclock" >
+      <td>EARFCN : </td>
+      <td id="channell" ></td>
+    </tr>
+	     <tr id="channell3g" style="display:none" >
+      <td>UARFCN : </td>
+      <td id="channelll3g" ></td>
+    </tr>
+	     <tr id="channell2g" style="display:none" >
+      <td>ARFCN : </td>
+      <td id="channelll2g" ></td>
+    </tr>
+    <tr>
+      <td>RSSI : </td>
+      <td id="rssii" ></td>
+    </tr>
+    <tr id="rsrpblock" >
+      <td id="rsrprscp" >RSRP : </td>
+      <td id="rsrpp" ></td>
+    </tr>
+	  <tr id="ecchid" style="display:none" >
+      <td>ECIO :</td>
+      <td id="eciooo" ></td>
+    </tr>
+	  <tr id="sinrblock">
+      <td>SINR : </td>
+      <td id="sinrr" ></td>
+    </tr>
+    <tr  id="rsrqblock" >
+      <td >RSRQ : </td>
+      <td id="rsrqq" ></td>
+    </tr>
+
+	 <tr  id="upb" >
+      <td >Upload Bandwidth : </td>
+      <td id="upbb" ></td>
+    </tr>
+	 <tr  id="downb" >
+      <td >Download Bandwidth : </td>
+      <td id="downbb" ></td>
+    </tr>
+  </table>
+  </center>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column" >
+
+  <table class="w3-table-all">
+    <thead>
+    <center>
+      <div  class="w3-red">
+  <center><p>Base Station Information</p></center>
+      </div>
+    </thead>
+       <tr>
+      <td>MCC / MNC : </td>
+      <td id="mccc" ></td>
+    </tr>
+    <tr>
+      <td>TAC / LAC : </td>
+      <td id="taccc" ></td>
+    </tr>
+ 
+    <tr>
+ 
+	 <tr>
+      <td>CELL ID : </td>
+      <td id="cellidd" ></td>
+    </tr>
+	 <tr id="pcidblock" >
+      <td>PCID : </td>
+      <td id="pcidd"  ></td>
+    </tr>	
+	<tr id="pcidw" style="display:none" >
+      <td>PSC : </td>
+      <td id="pciddw"  ></td>
+    </tr>	
+	<tr id="pcigsm" style="display:none" >
+      <td>BSID : </td>
+      <td id="pciddg"  ></td>
+    </tr>
+	
+	
+	
+  </table>
+  </center>
+  </div>
+  
+  <div class="column kma" >
+       <table class="w3-table-all">
+  
+    <tr>
+      <td>RSSI0 : </td>
+      <td id="rs" ></td>
+    </tr>
+    <tr>
+      <td>RSSI1 : </td>
+      <td id="rss" ></td>
+    </tr>
+    <tr>
+      <td>RSRP0 : </td>
+      <td id="rp" ></td>
+    </tr>
+	  <tr>
+      <td>RSRP1 : </td>
+      <td id="rpp" ></td>
+    </tr>
+	
+	  <tr>
+      <td>RSRQ0 : </td>
+      <td id="ec" ></td>
+    </tr>
+	  <tr>
+      <td>RSRQ1 : </td>
+      <td id="ecc" ></td>
+    </tr>
+  </table>
+  </center>
+  </div>
+</div>
+<script>
+
+
+
+
+
+	 setInterval(function () {
+	    var d = Math.floor(Math.random() * 1254547890);
+    $.getJSON('/luci-static/param.json?var='+d, function(data) {
+   
+        var rssi0 = `${data.RSSI0}`
+        var rssi1 = `${data.RSSI1}`
+        var rsrp0 = `${data.RSRP0}`
+        var rsrp1 = `${data.RSRP1}`
+        var ecio0 = `${data.ECIO0}`
+        var ecio1 = `${data.ECIO1}`
+        var imeii = `${data.IMEI}`
+        var imsii = `${data.IMSI}`
+        var iccid = `${data.ICCID}`
+        var band = `${data.BAND}`
+        var channel = `${data.CHANNEL}`
+        var mcc = `${data.MCC}`
+        var mnc = `${data.MNC}`
+        var cellid = `${data.CELLLID}`
+        var pcid = `${data.PCID}`
+        var tac = `${data.TAC}`
+        var shabake = `${data.SHABAKE}`
+        var shabakeif = `${data.SHABAKEIF}`
+        var rssi = `${data.RSSI}`
+        var rsrp = `${data.RSRP}`
+        var sinr = `${data.SINR}`
+        var rsrq = `${data.RSRQ}`
+        var ipv4 = `${data.IPV4}`
+        var ipv6 = `${data.IPV6}`
+        var temp = `${data.TEMP}`
+        var mccqw = `${data.MCCGW}`
+        var freq = `${data.FREQ}`
+        var upband = `${data.UPBAND}`
+        var downband = `${data.DOWNBAND}`
+        var pcidwc = `${data.PCIDWC}`
+         var imsilenn = `${data.IMSILON}`
+        
+        
+       
+		
+		 
+		   
+		  
+	
+
+if ( shabake == "HDR" || shabake == "HDR-EHRPD" || shabake == "GSM" || shabake == "GPRS" || shabake == "EDGE" ||shabake == "WCDMA" || shabake == "HSDPA" || shabake == "HSUPA" || shabake == "HSPA+" || shabake == "FDD-LTE" && imsilenn == "15" ) { 
+	
+		
+				  document.getElementById("imeiii").innerHTML = imeii ;
+		  document.getElementById("imsiii").innerHTML = imsii ;
+		  document.getElementById("iccidd").innerHTML = iccid ;
+		  document.getElementById("ipv44").innerHTML = ipv4 ;
+		  document.getElementById("ipv66").innerHTML = ipv6 ;
+		  document.getElementById("tempp").innerHTML = temp+"°C" ;
+		
+		
+		
+			 if ( shabakeif == "LTE" ) {
+		
+		 document.getElementById("ecchid").style.display = "none";
+		 document.getElementById("sinrblock").style.display = "";
+		 
+		 document.getElementById("rsrprscp").innerHTML = "RSRP :" ;
+		 document.getElementById("rsrqblock").style.display = "";
+		 document.getElementById("pcidblock").style.display = "";
+		 document.getElementById("rsrpblock").style.display = "";
+		 document.getElementById("pcidw").style.display = "none";
+		 document.getElementById("pcigsm").style.display = "none";
+		 document.getElementById("upb").style.display = "";
+		 document.getElementById("downb").style.display = "";
+	 document.getElementById("channelclock").style.display = "";
+		 document.getElementById("channell3g").style.display = "none";
+		 document.getElementById("channell2g").style.display = "none";
+
+
+  	      document.getElementById("rsrqq").innerHTML = rsrq ;
+		  document.getElementById("rs").innerHTML = rssi0 ;
+		  document.getElementById("rss").innerHTML = rssi1 ;
+		  document.getElementById("rp").innerHTML = rsrp0 ;
+		  document.getElementById("rpp").innerHTML = rsrp1 ;
+		  document.getElementById("ec").innerHTML = "-"+ecio0 ;
+		  document.getElementById("ecc").innerHTML = "-"+ecio1 ;
+	
+		  document.getElementById("band").innerHTML = band ;
+		  document.getElementById("mccc").innerHTML = mcc +"/"+ mnc;
+		  document.getElementById("cellidd").innerHTML = cellid ;
+		  document.getElementById("pcidd").innerHTML = pcid ;
+		  document.getElementById("taccc").innerHTML = tac ;
+		  document.getElementById("shaba").innerHTML = shabake ;
+		  document.getElementById("rssii").innerHTML =  "-"+rssi ;
+		  document.getElementById("channell").innerHTML = channel ;
+		  document.getElementById("rsrpp").innerHTML = rsrp ;
+		  document.getElementById("sinrr").innerHTML = sinr ;
+		  document.getElementById("eciooo").innerHTML = sinr ;
+		  document.getElementById("upbb").innerHTML = upband ;
+		  document.getElementById("downbb").innerHTML = downband ;
+
+
+		   
+		  
+		 }
+		
+			 if ( shabakeif == "WCDMA" ) {
+		 document.getElementById("upb").style.display = "none";
+		 document.getElementById("downb").style.display = "none";
+		 
+		 document.getElementById("ecchid").style.display = "";
+		 document.getElementById("pcidw").style.display = "";
+		 document.getElementById("sinrblock").style.display = "none";
+		 document.getElementById("channelclock").style.display = "none";
+		 document.getElementById("channell3g").style.display = "";
+		 		 document.getElementById("channell2g").style.display = "none";
+		 document.getElementById("pcigsm").style.display = "none";
+
+		 
+		 document.getElementById("rsrprscp").innerHTML = "RSCP :" ;
+		 		 document.getElementById("rsrqblock").style.display = "none";
+		 		 document.getElementById("pcidblock").style.display = "none";
+				 
+				        // document.getElementById("refreshh").innerHTML = document.getElementById("refreshh").innerHTML ;
+  	 document.getElementById("rsrqq").innerHTML = rsrq ;
+		  document.getElementById("rs").innerHTML = "-" ;
+		  document.getElementById("rss").innerHTML = "-" ;
+		  document.getElementById("rp").innerHTML = "-" ;
+		  document.getElementById("rpp").innerHTML = "-" ;
+		  document.getElementById("ec").innerHTML = "-" ;
+		  document.getElementById("ecc").innerHTML = "-" ;
+
+		  document.getElementById("band").innerHTML = band ;
+		  document.getElementById("mccc").innerHTML = mccqw +"/"+ mcc ;
+		  document.getElementById("cellidd").innerHTML = cellid ;
+		  document.getElementById("pciddw").innerHTML = pcidwc ;
+		  document.getElementById("taccc").innerHTML = mnc ;
+		  document.getElementById("shaba").innerHTML = shabake ;
+		  document.getElementById("rssii").innerHTML =  "-"+rssi ;
+          document.getElementById("channelll3g").innerHTML = channel ;
+		  document.getElementById("rsrpp").innerHTML = rsrp ;
+		  document.getElementById("sinrr").innerHTML = sinr ;
+
+		  document.getElementById("eciooo").innerHTML = sinr ;
+
+
+
+		   
+		  
+		 }
+		 
+		 	 if ( shabakeif == "GSM" ) {
+		 document.getElementById("pcidblock").style.display = "none";
+		 document.getElementById("channelclock").style.display = "none";
+		 document.getElementById("upb").style.display = "none";
+		 document.getElementById("downb").style.display = "none";
+		 document.getElementById("pcigsm").style.display = "";
+		 document.getElementById("channell2g").style.display = "";
+		  document.getElementById("channell3g").style.display = "none";
+		  		 document.getElementById("pcidw").style.display = "none";
+
+		 document.getElementById("sinrblock").style.display = "none";
+		 document.getElementById("rsrpblock").style.display = "none";
+		 document.getElementById("rsrqblock").style.display = "none";
+		 document.getElementById("ecchid").style.display = "none";
+  	     document.getElementById("rsrqq").innerHTML = rsrq ;
+		  document.getElementById("rs").innerHTML = "-" ;
+		  document.getElementById("rss").innerHTML = "-" ;
+		  document.getElementById("rp").innerHTML = "-" ;
+		  document.getElementById("rpp").innerHTML = "-" ;
+		  document.getElementById("ec").innerHTML = "-" ;
+		  document.getElementById("ecc").innerHTML = "-" ;
+	
+		  document.getElementById("band").innerHTML = band ;
+		  document.getElementById("mccc").innerHTML = mccqw +"/"+ mcc ;
+		  document.getElementById("cellidd").innerHTML = cellid ;
+		  document.getElementById("pciddg").innerHTML = pcid ;
+		  document.getElementById("taccc").innerHTML = mnc ;
+		  document.getElementById("shaba").innerHTML = shabake ;
+		  document.getElementById("rssii").innerHTML =  "-"+rssi ;
+		  document.getElementById("channelll2g").innerHTML = channel ;
+		  document.getElementById("rsrpp").innerHTML = rsrp ;
+		  document.getElementById("sinrr").innerHTML = sinr ;
+	
+		  document.getElementById("eciooo").innerHTML = sinr ;
+
+		 
+		 
+		   
+		  
+		 }
+  
+      } else {
+	  
+	  
+	  
+	  		  document.getElementById("imeiii").innerHTML = imeii ;
+		  document.getElementById("imsiii").innerHTML = "null" ;
+		  document.getElementById("iccidd").innerHTML = "null" ;
+		  document.getElementById("ipv44").innerHTML = "null" ;
+		  document.getElementById("ipv66").innerHTML = "null" ;
+		  document.getElementById("tempp").innerHTML = "null" ;
+	  
+	  
+	  			 if ( shabakeif == "LTE" ) {
+		
+		 document.getElementById("ecchid").style.display = "none";
+		 document.getElementById("sinrblock").style.display = "";
+		 
+		 document.getElementById("rsrprscp").innerHTML = "RSRP :" ;
+		 document.getElementById("rsrqblock").style.display = "";
+		 document.getElementById("pcidblock").style.display = "";
+		 document.getElementById("rsrpblock").style.display = "";
+		 document.getElementById("pcidw").style.display = "none";
+		 document.getElementById("pcigsm").style.display = "none";
+		 document.getElementById("upb").style.display = "";
+		 document.getElementById("downb").style.display = "";
+	 document.getElementById("channelclock").style.display = "";
+		 document.getElementById("channell3g").style.display = "none";
+		 document.getElementById("channell2g").style.display = "none";
+
+
+  	      document.getElementById("rsrqq").innerHTML = "null" ;
+		  document.getElementById("rs").innerHTML = "null" ;
+		  document.getElementById("rss").innerHTML = "null" ;
+		  document.getElementById("rp").innerHTML = "null" ;
+		  document.getElementById("rpp").innerHTML = "null" ;
+		  document.getElementById("ec").innerHTML = "null" ;
+		  document.getElementById("ecc").innerHTML = "null" ;
+	
+		  document.getElementById("band").innerHTML = "null" ;
+		  document.getElementById("mccc").innerHTML = "null";
+		  document.getElementById("cellidd").innerHTML = "null" ;
+		  document.getElementById("pcidd").innerHTML = "null" ;
+		  document.getElementById("taccc").innerHTML = "null" ;
+		  document.getElementById("shaba").innerHTML = "null" ;
+		  document.getElementById("rssii").innerHTML =  "null" ;
+		  document.getElementById("channell").innerHTML = "null" ;
+		  document.getElementById("rsrpp").innerHTML = "null" ;
+		  document.getElementById("sinrr").innerHTML = "null" ;
+		  document.getElementById("eciooo").innerHTML = "null" ;
+		  document.getElementById("upbb").innerHTML = "null" ;
+		  document.getElementById("downbb").innerHTML = "null" ;
+
+
+		   
+		  
+		 }
+		 
+		 
+		
+			 if ( shabakeif == "WCDMA" ) {
+		 document.getElementById("upb").style.display = "none";
+		 document.getElementById("downb").style.display = "none";
+		 
+		 document.getElementById("ecchid").style.display = "";
+		 document.getElementById("pcidw").style.display = "";
+		 document.getElementById("sinrblock").style.display = "none";
+		 document.getElementById("channelclock").style.display = "none";
+		 document.getElementById("channell3g").style.display = "";
+		 		 document.getElementById("channell2g").style.display = "none";
+		 document.getElementById("pcigsm").style.display = "none";
+
+		 
+		 document.getElementById("rsrprscp").innerHTML = "RSCP :" ;
+		 		 document.getElementById("rsrqblock").style.display = "none";
+		 		 document.getElementById("pcidblock").style.display = "none";
+				 
+				        // document.getElementById("refreshh").innerHTML = document.getElementById("refreshh").innerHTML ;
+  	 document.getElementById("rsrqq").innerHTML = rsrq ;
+		  document.getElementById("rs").innerHTML = "-" ;
+		  document.getElementById("rss").innerHTML = "-" ;
+		  document.getElementById("rp").innerHTML = "-" ;
+		  document.getElementById("rpp").innerHTML = "-" ;
+		  document.getElementById("ec").innerHTML = "-" ;
+		  document.getElementById("ecc").innerHTML = "-" ;
+
+		  document.getElementById("band").innerHTML = "null" ;
+		  document.getElementById("mccc").innerHTML = "null" ;
+		  document.getElementById("cellidd").innerHTML = "null" ;
+		  document.getElementById("pciddw").innerHTML = "null" ;
+		  document.getElementById("taccc").innerHTML = "null" ;
+		  document.getElementById("shaba").innerHTML = "null" ;
+		  document.getElementById("rssii").innerHTML =  "null" ;
+          document.getElementById("channelll3g").innerHTML = "null" ;
+		  document.getElementById("rsrpp").innerHTML = "null" ;
+		  document.getElementById("sinrr").innerHTML = "null" ;
+
+		  document.getElementById("eciooo").innerHTML = "null" ;
+
+
+
+		   
+		  
+		 }
+		 
+		 	 if ( shabakeif == "GSM" ) {
+		 document.getElementById("pcidblock").style.display = "none";
+		 document.getElementById("channelclock").style.display = "none";
+		 document.getElementById("upb").style.display = "none";
+		 document.getElementById("downb").style.display = "none";
+		 document.getElementById("pcigsm").style.display = "";
+		 document.getElementById("channell2g").style.display = "";
+		  document.getElementById("channell3g").style.display = "none";
+		  		 document.getElementById("pcidw").style.display = "none";
+
+		 document.getElementById("sinrblock").style.display = "none";
+		 document.getElementById("rsrpblock").style.display = "none";
+		 document.getElementById("rsrqblock").style.display = "none";
+		 document.getElementById("ecchid").style.display = "none";
+  	     document.getElementById("rsrqq").innerHTML = rsrq ;
+		  document.getElementById("rs").innerHTML = "-" ;
+		  document.getElementById("rss").innerHTML = "-" ;
+		  document.getElementById("rp").innerHTML = "-" ;
+		  document.getElementById("rpp").innerHTML = "-" ;
+		  document.getElementById("ec").innerHTML = "-" ;
+		  document.getElementById("ecc").innerHTML = "-" ;
+	
+		  document.getElementById("band").innerHTML = "null" ;
+		  document.getElementById("mccc").innerHTML = "null" ;
+		  document.getElementById("cellidd").innerHTML = "null" ;
+		  document.getElementById("pciddg").innerHTML = "null" ;
+		  document.getElementById("taccc").innerHTML = "null" ;
+		  document.getElementById("shaba").innerHTML = "null" ;
+		  document.getElementById("rssii").innerHTML =  "null" ;
+		  document.getElementById("channelll2g").innerHTML = "null" ;
+		  document.getElementById("rsrpp").innerHTML = "null" ;
+		  document.getElementById("sinrr").innerHTML = "null" ;
+	
+		  document.getElementById("eciooo").innerHTML = "null" ;
+
+		 
+		 
+		   
+		  
+		 }
+		 
+	}
+	  
+	  
+	  
+	  
+	  
+  
+      
+                    
+        
+      //  $(".mac").html(mac);
+      //  $(".imei").html(imei);
+      //  $(".wifissid").html(wifissid);
+      //  $(".wifipass").html(wifipass);
+	
+
+	
+		  
+	
+	
+	
+	
+	
+	
+	
+	 
+		 
+    }); 
+	
+	  }, 1000); 
+	
+	
+ 
+	
+	
+	
+	
+</script>
+</body>
+</html>

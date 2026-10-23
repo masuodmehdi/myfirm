@@ -1,0 +1,425 @@
+<!--
+
+ __  ___   ______   .___  ___.  _______  __   __       __  ___ .___  ___.      ___      
+|  |/  /  /  __  \  |   \/   | |   ____||  | |  |     |  |/  / |   \/   |     /   \     
+|  '  /  |  |  |  | |  \  /  | |  |__   |  | |  |     |  '  /  |  \  /  |    /  ^  \    
+|    <   |  |  |  | |  |\/|  | |   __|  |  | |  |     |    <   |  |\/|  |   /  /_\  \   
+|  .  \  |  `--'  | |  |  |  | |  |____ |  | |  `----.|  .  \  |  |  |  |  /  _____  \  
+|__|\__\  \______/  |__|  |__| |_______||__| |_______||__|\__\ |__|  |__| /__/     \__\ 
+                                                                                        
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/luci-static/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="/luci-static/assets/im">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+   ESM Modern modem
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="/luci-static/assets/css/foont.css" />
+  <link rel="stylesheet" href="/luci-static/assets/css/awe.css">
+  <!-- CSS Files -->
+  <link href="/luci-static/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="/luci-static/assets/demo/demo.css" rel="stylesheet" />
+</head>
+
+<script src='/luci-static/jqueryy-2.2.4.min.js'></script>
+
+<body class="">
+
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" >
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo">
+        <a href="/cgi-bin/luci/admin/status/overview" class="simple-text logo-normal">
+          <img style="width:80%" src="/luci-static/logoaslli.png">
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="/cgi-bin/luci/admin/status/overview">
+              <i class="material-icons">dashboard</i>
+              <p>Overview</p>
+            </a>
+          </li>
+         
+<li class="nav-item " >
+ 
+  <a class="nav-link" data-toggle="collapse" href="#componentsExamples">
+ <i class="material-icons">cloud</i>
+    <p>Network
+       <b class="caret"></b>
+    </p>
+  </a>
+  <div class="collapse " id="componentsExamples">
+    <ul class="nav">
+                    <li class="nav-item">
+        <a class="nav-link" href="/luci-static/celll.html">
+        
+          <span class="sidebar-normal">cellular network</span>
+        </a>
+      </li>         <li class="nav-item">
+        <a class="nav-link" href="/luci-static/apn.html">
+        
+          <span class="sidebar-normal">APN Management</span>
+        </a>
+      </li>
+                  <li class="nav-item   ">
+        <a class="nav-link" href="/luci-static/lan.html">
+          
+          <span class="sidebar-normal">LAN Settings </span>
+        </a>
+      </li>
+				
+                    <li class="nav-item ">
+        <a class="nav-link" href="/luci-static/staticr.html">
+          
+          <span class="sidebar-normal">Static Route </span>
+        </a>
+      </li>
+        
+      <li class="nav-item ">
+        <a id="netp" class="nav-link" href="/luci-static/netper.html">
+          
+          <span class="sidebar-normal">Network Preferred</span>
+        </a>
+      </li>
+                 
+                </ul>
+  </div>
+</li>
+<li class="nav-item " >
+  <a class="nav-link" data-toggle="collapse" href="#componentsExamples1">
+     <i class="material-icons">wifi</i>
+    <p>Wi-Fi
+       <b class="caret"></b>
+    </p>
+  </a>
+  <div class="collapse" id="componentsExamples1">
+    <ul class="nav">
+                 
+          <li class="nav-item">
+        <a  class="nav-link" href="/luci-static/wlanstat.html">
+          
+          <span class="sidebar-normal">WI-Fi Status</span>
+        </a>
+      </li>
+
+
+                    <li class="nav-item">
+        <a  class="nav-link" href="/luci-static/wlansetting.html">
+          
+          <span class="sidebar-normal">Wi-Fi Settings</span>
+        </a>
+      </li>
+                       
+                 
+                </ul>
+  </div>
+</li>
+        
+<li class="nav-item " >
+  <a class="nav-link" data-toggle="collapse" href="#componentsExamples2">
+         <i class="material-icons">security</i>
+
+    <p>Security
+       <b class="caret"></b>
+    </p>
+  </a>
+  <div class="collapse " id="componentsExamples2">
+    <ul class="nav">
+            
+                    <li class="nav-item">
+        <a  class="nav-link" href="/luci-static/macf.html">
+          
+          <span class="sidebar-normal">MAC Filtering </span>
+        </a>
+      </li>
+                    <li class="nav-item ">
+        <a class="nav-link" href="/luci-static/ipf.html">
+          
+          <span class="sidebar-normal">IP Filtering</span>
+        </a>
+      </li>
+      
+                   <li class="nav-item">
+        <a class="nav-link" href="/luci-static/urlf.html">
+          
+          <span class="sidebar-normal">URL Filtering</span>
+        </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/luci-static/portf.html">
+          
+          <span class="sidebar-normal">Port Forwarding</span>
+        </a>
+      </li>
+          <li class="nav-item ">
+        <a class="nav-link" href="/luci-static/portf.html">
+          
+          <span class="sidebar-normal">DMZ</span>
+        </a>
+      </li>
+
+
+       
+                </ul>
+  </div>
+</li>
+         
+
+
+
+
+
+
+
+         
+         <li class="nav-item " >
+  <a class="nav-link" data-toggle="collapse" href="#componentsExamples12">
+             <i class="material-icons">sms</i>
+    <p>SMS
+       <b class="caret"></b>
+    </p>
+  </a>
+  <div class="collapse show" id="componentsExamples12">
+    <ul class="nav">
+                    <li class="nav-item ">
+        <a class="nav-link" href="/luci-static/sms.html">
+        
+          <span class="sidebar-normal">Inbox</span>
+        </a>
+      </li>
+        
+                    <li class="nav-item">
+        <a class="nav-link" href="/luci-static/newsms.html">
+          
+          <span class="sidebar-normal">New Message</span>
+        </a>
+      </li>
+      
+                   <li class="nav-item">
+        <a class="nav-link" href="/luci-static/outbox.html">
+          
+          <span class="sidebar-normal">Outbox</span>
+        </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/luci-static/sentsms.html">
+          
+          <span class="sidebar-normal">Sent Massages</span>
+        </a>
+      </li>
+	  
+	      <li class="nav-item active">
+        <a class="nav-link" href="/luci-static/ussdnew.html">
+          
+          <span class="sidebar-normal">USSD</span>
+        </a>
+      </li>
+     
+                </ul>
+  </div>
+</li>  
+
+
+         
+<li class="nav-item " >
+  <a class="nav-link" data-toggle="collapse" href="#componentsExamples3">
+             <i class="material-icons">settings</i>
+    <p>System
+       <b class="caret"></b>
+    </p>
+  </a>
+  <div class="collapse " id="componentsExamples3">
+    <ul class="nav">
+                    <li class="nav-item ">
+        <a class="nav-link" href="/luci-static/maint.html">
+        
+          <span class="sidebar-normal">Maintenance</span>
+        </a>
+      </li>
+            
+                    <li class="nav-item">
+        <a class="nav-link" href="/luci-static/date.html">
+          
+          <span class="sidebar-normal">Date & Time</span>
+        </a>
+      </li>
+      
+                   <li class="nav-item">
+        <a class="nav-link" href="/luci-static/diag.html">
+          
+          <span class="sidebar-normal">Diagnostics</span>
+        </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/luci-static/acc.html">
+          
+          <span class="sidebar-normal">Account</span>
+        </a>
+      </li>
+
+                </ul>
+  </div>
+</li>   
+
+
+       <li class="nav-item " >
+  <a class="nav-link" data-toggle="collapse" href="#componentsExamples9">
+     <i class="material-icons">warning</i>
+    <p>Firewall
+       <b class="caret"></b>
+    </p>
+  </a>
+  <div class="collapse " id="componentsExamples9">
+    <ul class="nav">
+                       <li class="nav-item  ">
+        <a  class="nav-link" href="/luci-static/webacsl.html">
+          
+          <span class="sidebar-normal">Web Remote Access</span>
+        </a>
+      </li>
+                 
+                </ul>
+  </div>
+</li> 
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="/cgi-bin/luci/admin/logout">
+          <i class="material-icons">logout</i>
+           <p>Logout
+
+    </p>
+        </a>
+      </li> 
+       
+          
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="#pablo"></a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+        
+            <ul class="navbar-nav">
+              <li class="nav-item">
+           
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">notifications</i>
+                  <span class="notification">1</span>
+                  <p class="d-lg-none d-md-block">
+                    Some Actions
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Welcome to ESM Modem Admin Panel</a>
+          
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/luci-static/acc.html">
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+
+      <div class="content">
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">USSD</h4>
+                  <p class="card-category"></p>
+                </div>
+
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <iframe style="
+    display:block;
+    width:100%;
+height:60vh;
+" src="/luci-static/ussd.html" frameborder="0"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <div id="div134"></div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+          <script language="javascript" type="text/javascript">                                                                     
+   var d = Math.floor(Math.random() * 1254547890);                                                              
+
+        
+          document.getElementById('netp').href = "/luci-static/netper.html?var=" +d; 
+
+                                                                                            
+</script> 
+  <script src="/luci-static/assets/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="/luci-static/assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="/luci-static/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+  <script src="/luci-static/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+
+  <!--  Google Maps Plugin    -->
+  <!-- Chartist JS -->
+  <script src="/luci-static/assets/js/plugins/chartist.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="/luci-static/assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="/luci-static/assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  <script src="/luci-static/assets/demo/demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
+    });
+
+
+
+
+
+
+
+   </script>
+</body>
+
+</html>

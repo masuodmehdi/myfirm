@@ -1,0 +1,58 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+
+chmod 777 /../lan.sh
+chmod 777 /../mac.sh
+chmod 777 /../offon.sh
+chmod 777 /../wifimac.sh
+chmod 777 /../cell.sh
+chmod 777 /../connectqmi2.sh
+chmod 777 /../lon.sh
+chmod 777 /../ussd.sh
+chmod 777 /../lon2.sh
+chmod 777 /res/shatel.sh
+chmod 777 /res/shootel.sh
+chmod 777 /../cpres.sh
+chmod 777 /../wifisetting.sh
+chmod 777 /../wps-button.sh
+
+
+
+
+./../mac.sh
+rm /../mac.sh
+devmem 0x010000060 32 0x54044455
+
+echo   "0"  > /sys/class/gpio/export
+echo  "1"  > /sys/class/gpio/export
+echo  "2"  > /sys/class/gpio/export
+echo  "3"  > /sys/class/gpio/export
+echo  "6"  > /sys/class/gpio/export
+echo  "out"  > /sys/class/gpio/gpio0/direction
+echo  "out"  > /sys/class/gpio/gpio1/direction
+echo  "out"  > /sys/class/gpio/gpio2/direction
+echo  "out"  > /sys/class/gpio/gpio3/direction
+echo  "out"  > /sys/class/gpio/gpio6/direction
+./../wifisetting.sh &
+./../lan.sh &
+./../cpres.sh &
+
+
+
+  cp /../www/nosim/simstatus.jpg /www/luci-static/
+  cp /../www/offline/netstatus.jpg /www/luci-static/
+  cp /../www/nopic/noner.jpg /www/luci-static/
+  cp /../www/nosig/signal.jpg /www/luci-static/
+
+
+./../offon.sh &
+./../cell.sh &
+./../wifimac.sh &
+./../lon.sh &
+./../lon2.sh
+rm /../lon2.sh
+./../bashmci/lan.sh &
+exit 0
+
+

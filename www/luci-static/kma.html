@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body onload="redblood()" >
+<meta name="viewport" content="initial-scale=1.0">
+<link rel="stylesheet" href="/luci-static/bootstrap/cascade.css?v=git-18.228.31946-f64b152">
+<link rel="stylesheet" media="only screen and (max-device-width: 854px)" href="/luci-static/bootstrap/mobile.css?v=git-18.228.31946-f64b152" type="text/css" />
+<link rel="shortcut icon" href="/luci-static/bootstrap/favicon.ico">
+<script src="/luci-static/resources/cbi.js?v=git-18.228.31946-f64b152"></script>
+<script src="/luci-static/resources/xhr.js?v=git-18.228.31946-f64b152"></script>
+<meta http-equiv="cache-control" content="no-cache" />
+<center>
+ <form method="post" action="/luci-static/tr069.php"> 
+Active-Deactive:<br><select name="tract"><option value="enable">TR-069</option><option value="disable">Disable</option></select><br><br>
+ACS URL:<br><input style="width:400px !important" value="" type="text" name="aacsurl" ><br><br>
+ACS UserName:<br><input type="text" value="" name="acsunam" ><br><br>
+ACS UserPassword:<br><input type="password" value="" name="acspass" ><br><br>
+Enable Periodic Inform:<br><select name="period"><option value="disable">Disable</option><option value="enable">Enable</option></select><br><br>
+periodic Inform Interval:<br><input value="" type="text" name="periodic" ><br><br>
+Connection Request User Name:<br><input value="" type="text" name="conunam" value="autofill" ><br><br>
+Connection Request Password:<br><input value="" type="password" name="conpass" value="autofill" ><br><br>
+<input type="submit" value="Save Settings">
+</form> 
+</center>
+</body>
+</html>

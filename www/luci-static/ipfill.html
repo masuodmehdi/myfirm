@@ -1,0 +1,117 @@
+<!--
+
+ __  ___   ______   .___  ___.  _______  __   __       __  ___ .___  ___.      ___      
+|  |/  /  /  __  \  |   \/   | |   ____||  | |  |     |  |/  / |   \/   |     /   \     
+|  '  /  |  |  |  | |  \  /  | |  |__   |  | |  |     |  '  /  |  \  /  |    /  ^  \    
+|    <   |  |  |  | |  |\/|  | |   __|  |  | |  |     |    <   |  |\/|  |   /  /_\  \   
+|  .  \  |  `--'  | |  |  |  | |  |____ |  | |  `----.|  .  \  |  |  |  |  /  _____  \  
+|__|\__\  \______/  |__|  |__| |_______||__| |_______||__|\__\ |__|  |__| /__/     \__\ 
+                                                                                        
+
+-->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>url filtering</title>
+		<link rel="stylesheet" href="/luci-static/bootstrap/cascade.css?v=git-17.290.79498-d3f0685">
+		<link rel="stylesheet" media="only screen and (max-device-width: 854px)" href="/luci-static/bootstrap/mobile.css?v=git-17.290.79498-d3f0685" type="text/css" />
+    
+  	<script src='/luci-static/stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js'>
+</script><script src='/luci-static/sweetalert2.js'></script>
+<script src='/luci-static/promise-polyfill.js'></script>
+<style type="text/css">
+    form{
+        margin: 20px 0;
+    }
+    form input, button{
+        padding: 5px;
+    }
+    table{
+        width: 100%;
+        margin-bottom: 20px;
+		border-collapse: collapse;
+    }
+    table, th, td{
+        border: 1px solid #cdcdcd;
+    }
+    table th, table td{
+        padding: 10px;
+        text-align: left;
+    }
+</style>
+<!--
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".add-row").click(function(){
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var emaill = $("#email2").val();
+			if(email != "" ) {
+            var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + name + "</td><td>" + emaill + "</td><td>" + email + "</td></tr>";
+            $("table tbody").append(markup); }
+        }); 
+        
+        // Find and remove selected table rows
+        $(".delete-row").click(function(){
+            $("table tbody").find('input[name="record"]').each(function(){
+            	if($(this).is(":checked")){
+                    $(this).parents("tr").remove();
+                }
+            });
+        });
+    });    
+	
+
+</script>
+-->
+<script>
+    function komeil(){
+    
+        swal("Invalid Input", "please check ip address . ip not found", "error");
+        
+    }
+    
+    </script>
+    <script  src="js22/index2.js"></script>
+</head>
+<body>
+    <form>
+        <select id="name" name="input2">
+  <option value="Enable">Enable</option>
+  <option value="Disable">Disable</option>
+
+</select>
+ <input type="text" id="email2" placeholder="Source Port Range">
+        <input type="text" id="email" placeholder="Source IP Address Range">
+       
+    	<input type="button" class="add-row" onclick="komeil()" value="Add">
+		
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Select</th>
+				<th>Status</th>
+				 <th>port</th>
+                <th>IP Address </th>
+               
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="delete-row">Delete </button>
+</body> 
+</html>                            
